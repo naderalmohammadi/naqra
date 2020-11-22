@@ -33,7 +33,8 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                            <li><a class="nav-link{{Request::is("/") ? " active" : ""}}" href='/'>{{trans('main.Home')}}</a></li>
+                            <li><a class="nav-link{{Request::is("article*") ? " active" : ""}}" href='/article'>{{trans('main.Articles')}}</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -45,7 +46,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
