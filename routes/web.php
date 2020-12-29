@@ -1,23 +1,51 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//use App\Http\Middleware\Lang;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+
+Route::get('lang/{lang}', function ($lang) {
+    if(in_array($lang , ['en','ar'])){
+        if(auth()->user()){
+            $user = auth()->user();
+            $user->lang = $lang;
+            $user->save();
+        } else {
+            if(session()->has('lang')){
+                session()->forget('lang');
+            }
+            session()->put('lang', $lang);
+        }
+    }else{
+        if(auth()->user()){
+            $user = auth()->user();
+            $user->lang = 'en';
+            $user->save();
+        } else {
+            if(session()->has('lang')){
+                session()->forget('lang');
+            }
+            session()->put('lang', 'en');
+        }
+    }
+    return back();
+});
+
+//Route::middleware([Lang::class])->group(function(){
+
+Route::group([
+    'middleware' => 'Lang',
+], function() {
 
 Route::get('/', function () {
     return view('home');
 });
 
+Route::post('addBookmark/{article}', 'ArticleController@addBookmark');
+
 Route::resource('article', 'ArticleController');
+
+});
 
 Auth::routes();
 

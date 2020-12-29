@@ -50,15 +50,11 @@ class ArticleController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Article  $article
-     * @return \Illuminate\Http\Response
-     */
     public function show(Article $article)
     {
-        //
+        return view ('article.show')->with([
+            'article' => $article
+        ]);
     }
 
     public function edit(Article $article)
@@ -95,4 +91,15 @@ class ArticleController extends Controller
             'message_success' => '<b>' .$oldName. '</b> was deleted.'
         ]);
     }
+
+    public function addBookmark(Request $request, Article $article)
+    {
+        $article->update([
+            'bookMark' => $request->input('bookMark')
+        ]);
+
+        //return $request->input('bookMark');
+    }
+
+
 }

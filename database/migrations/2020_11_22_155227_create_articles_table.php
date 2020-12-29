@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->string('title');
             $table->text('content');
+            $table->string('bookMark')->nullable();
             $table->timestamps();
             $table->foreign('user_id')
             ->references('id')->on('users')

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Naqra') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -33,23 +33,30 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                            <li><a class="nav-link{{Request::is("/") ? " active" : ""}}" href='/'>{{trans('main.Home')}}</a></li>
-                            <li><a class="nav-link{{Request::is("article*") ? " active" : ""}}" href='/article'>{{trans('main.Articles')}}</a></li>
-                    </ul>
+                            <li><a class="nav-link{{Request::is("/") ? " active" : ""}}" href='/'>{{trans('main.home')}}</a></li>
+                            @auth
+                            <li><a class="nav-link{{Request::is("article*") ? " active" : ""}}" href='/article'>{{trans('main.articles')}}</a></li>
+                            @endauth
+                        </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item lang">
+                            <a class="nav-link"
+                                    href="{{app()->getLocale() == 'en' ? '/lang/ar' : '/lang/en'}}"
+                                    >{{ app()->getLocale() == 'en' ? 'العربية' : 'English' }}</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">{{ trans('main.login') }}</a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ trans('main.register') }}</a>
                                 </li>
                             @endif
                         @else
