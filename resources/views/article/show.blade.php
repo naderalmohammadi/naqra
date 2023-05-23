@@ -5,7 +5,7 @@
         <div class="col-md-11">
             <div class="card">
                     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-                        <a class="navbar-brand" href="#">article Details</a>
+                        <a class="navbar-brand" href="#">{{trans('main.article_details')}}</a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -18,7 +18,7 @@
 
                             {{-- start of buttons --}}
                     <span class="navbar-nav ml-auto">
-                        <button class="btn btn-sm btn-primary" id="reset">Reset</button>
+                        <button class="btn btn-sm btn-primary" id="reset">{{trans('main.reset')}}</button>
                                     <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary float-right mx-2" data-toggle="modal" data-target="#exampleModal">
     <i class="fas fa-cog"></i>
@@ -29,7 +29,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Settings</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{trans('main.settings')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -38,18 +38,18 @@
           {{-- Modal body --}}
           <form>
             <div class="form-group">
-                <label for="method">Method: </label>
+                <label for="method">{{trans('main.method')}}</label>
                   <select class="form-control" id="method">
-                    <option disabled selected value> -- select reading method -- </option>
-                    <option value="word">Word by word</option>
-                    <option id="highlight" value="highlight">Letter by letter</option>
-                    <option id="highlightOver" value="highlightOver">Highlight over text</option>
+                    <option disabled selected value> {{trans('main.s_method')}}</option>
+                    <option value="word">{{trans('main.word')}}</option>
+                    <option id="highlight" value="highlight">{{trans('main.letter')}}</option>
+                    <option id="highlightOver" value="highlightOver">{{trans('main.highlight')}}</option>
                   </select>
             </div>
             <div class="form-group">
-                <label for="textSize">Text size: </label>
+                <label for="textSize">{{trans('main.text_size')}}</label>
                   <select class="form-control" id="textSize">
-                    <option disabled selected value> -- select text size -- </option>
+                    <option disabled selected value>{{trans('main.s_size')}}</option>
                     <option value="10">10</option>
                     <option value="12">12</option>
                     <option value="14">14</option>
@@ -59,37 +59,37 @@
                   </select>
             </div>
             <div id="wordFormGroup" class="form-group">
-                <label for="wordSpeed">speed: </label>
+                <label for="wordSpeed">{{trans('main.speed')}}</label>
                   <select class="form-control" id="wordSpeed">
-                    <option disabled selected value> -- select words speed -- </option>
-                    <option value="1200">50 wpm</option>
-                    <option value="600">100 wpm</option>
-                    <option value="400">150 wpm</option>
-                    <option value="300">200 wpm</option>
-                    <option value="240">250 wpm</option>
-                    <option value="200">300 wpm</option>
+                    <option disabled selected value>{{trans('main.s_speed')}}</option>
+                    <option value="1200">50 {{trans('main.wpm')}}</option>
+                    <option value="600">100 {{trans('main.wpm')}}</option>
+                    <option value="400">150 {{trans('main.wpm')}}</option>
+                    <option value="300">200 {{trans('main.wpm')}}</option>
+                    <option value="240">250 {{trans('main.wpm')}}</option>
+                    <option value="200">300 {{trans('main.wpm')}}</option>
                   </select>
             </div>
             <div id="highlightFormGroup" class="form-group d-none">
-                <label for="highlightSpeed">speed: </label>
+                <label for="highlightSpeed">{{trans('main.speed')}}</label>
                   <select class="form-control" id="highlightSpeed">
-                    <option disabled selected value> -- select words speed -- </option>
-                    <option value="1200">50 wpm</option>
-                    <option value="600">100 wpm</option>
-                    <option value="400">150 wpm</option>
-                    <option value="300">200 wpm</option>
-                    <option value="240">250 wpm</option>
-                    <option value="200">300 wpm</option>
+                    <option disabled selected value>{{trans('main.s_speed')}}</option>
+                    <option value="1200">50 {{trans('main.wpm')}}</option>
+                    <option value="600">100 {{trans('main.wpm')}}</option>
+                    <option value="400">150 {{trans('main.wpm')}}</option>
+                    <option value="300">200 {{trans('main.wpm')}}</option>
+                    <option value="240">250 {{trans('main.wpm')}}</option>
+                    <option value="200">300 {{trans('main.wpm')}}</option>
                   </select>
             </div>
             <div id="textColor" class="form-group d-none">
-                <label for="color">Color: </label>
+                <label for="color">{{trans('main.color')}}</label>
                 <select class="form-control" id="color">
-                    <option disabled selected value> -- select text color -- </option>
-                    <option  value="red">Red</option>
-                    <option value="black">Black</option>
-                    <option value="blue">Blue</option>
-                    <option value="green">Green</option>
+                    <option disabled selected value>{{trans('main.s_text_color')}}</option>
+                    <option  value="red">{{trans('main.red')}}</option>
+                    <option value="black">{{trans('main.black')}}</option>
+                    <option value="blue">{{trans('main.blue')}}</option>
+                    <option value="green">{{trans('main.green')}}</option>
                   </select>
             </div>
           </form>
@@ -101,7 +101,6 @@
     </div>
   </div>
 
-                        <a href="{{ URL::previous() }}" class="btn btn-primary btn-sm float-right"><i class="fas fa-undo"></i> Back to Overview</a>
                     </span>
                             {{-- End of buttons --}}
 
@@ -124,7 +123,7 @@
                 </div>
                 </div>
             </div>
-            <button id="save" class="btn btn-primary">Save</button>
+            <button id="save" class="btn btn-primary mt-2">{{trans('main.save')}}</button>
                         {{-- <div><i class="fas fa-info-circle"></i> First, set your settings preferences <i class="fas fa-cog"></i> .</div>
             <div><i class="fas fa-info-circle"></i> Tab once on text to start, tab again to pause.</div>
             <div><i class="fas fa-info-circle"></i> Method change, and color change will reset reading.</div> --}}

@@ -13,8 +13,12 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    {{ __('Welcome!') }}
+                    @auth
+                    <h1>Welcome {{auth()->user()->name}}</h1>
+                    @endauth
+                    @guest
+                    <h1>You have to sign up in order to access this service</h1>
+                    @endguest
                 </div>
             </div>
         </div>
