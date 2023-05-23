@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 //use App\Http\Middleware\Lang;
 
@@ -37,16 +38,12 @@ Route::group([
     'middleware' => 'Lang',
 ], function() {
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Route::post('addBookmark/{article}', 'ArticleController@addBookmark');
 
-Route::resource('article', 'ArticleController');
+// Route::resource('article', 'ArticleController');
+Route::get('/', [App\Http\Controllers\ArticleController::class, 'index']);
+
 
 });
 
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
